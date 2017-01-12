@@ -8,7 +8,7 @@ import java.util.Date;
  * Created by admin on 2017/1/10.
  */
 public class User implements Serializable {
-    private int id;
+    private int uId;
 
     private String userName;
 
@@ -28,18 +28,18 @@ public class User implements Serializable {
     }
 
     public User(int id, String userName, int age, String gender) {
-        this.id = id;
+        this.uId = id;
         this.userName = userName;
         this.age = age;
         this.gender = gender;
     }
 
-    public int getId() {
-        return id;
+    public int getUId() {
+        return uId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUId(int uId) {
+        this.uId = uId;
     }
 
     public String getUserName() {
@@ -101,7 +101,7 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "uId=" + uId +
                 ", userName='" + userName + '\'' +
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
