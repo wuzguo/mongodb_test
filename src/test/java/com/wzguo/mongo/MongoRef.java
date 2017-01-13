@@ -36,7 +36,7 @@ public class MongoRef {
 
             while (documentMongoCursor.hasNext()) {
                 Document document = documentMongoCursor.next();
-                System.out.println("document: " + document);
+                System.out.println("document: " + document.toJson());
 
 
                 System.out.println("document.$db: " + JSON.serialize(document.get("document")));
