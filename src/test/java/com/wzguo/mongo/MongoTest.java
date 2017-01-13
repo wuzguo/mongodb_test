@@ -39,23 +39,27 @@ public class MongoTest {
         MongoDatabase mongoDatabase = mongoClient.getDatabase("imooc");
         MongoCollection<Document> documentMongoCollection = mongoDatabase.getCollection("github");
 
-        User usr = new User(123, "joey", 34, "女");
-        usr.setBirth(new Date());
-        //  usr.setWealth(new BigDecimal(50000006.24));
-        usr.setWeight(56.23);
+        for (int i = 0; i < 10000; i++) {
+            User usr = new User(i, "XA_" + i, (int) (Math.random() * 100), (i % 2 == 0 ? "男" : "女"));
+            usr.setBirth(new Date());
+            //  usr.setWealth(new BigDecimal(50000006.24));
+            usr.setWeight(Math.random() * 100);
+            List<Object> users = new ArrayList<Object>(3);
+            users.add(usr);
 
-        List<Object> users = new ArrayList<Object>(3);
-        users.add(usr);
+            try {
+                documentMongoCollection.insertMany(MongoTest.toBsons(users));
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
+            }
 
-        try {
-            documentMongoCollection.insertMany(MongoTest.toBsons(users));
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
         }
+
+
 
         FindIterable<Document> documents = documentMongoCollection.find();
         MongoCursor<Document> documentMongoCursor = documents.iterator();

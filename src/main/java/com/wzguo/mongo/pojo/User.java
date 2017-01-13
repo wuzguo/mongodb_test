@@ -35,11 +35,11 @@ public class User implements Serializable {
         this.gender = gender;
     }
 
-    public int getuId() {
+    public int getUId() {
         return uId;
     }
 
-    public void setuId(int uId) {
+    public void setUId(int uId) {
         this.uId = uId;
     }
 
