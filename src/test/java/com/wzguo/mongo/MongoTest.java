@@ -23,7 +23,7 @@ public class MongoTest {
         String pwd = null;
         String authDb = "imooc";
         String host = "localhost";
-        int port = 10000;
+        int port = 12345;
 
         // 直接连接
         // MongoCredential credential = MongoCredential.createCredential(user, authDb, pwd.toCharArray());
@@ -61,7 +61,7 @@ public class MongoTest {
         MongoCursor<Document> documentMongoCursor = documents.iterator();
 
         while (documentMongoCursor.hasNext()) {
-            System.out.println(documentMongoCursor.next());
+            System.out.println(documentMongoCursor.next().toJson());
         }
     }
 
