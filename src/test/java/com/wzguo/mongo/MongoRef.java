@@ -38,7 +38,6 @@ public class MongoRef {
                 Document document = documentMongoCursor.next();
                 System.out.println("document: " + document.toJson());
 
-
                 System.out.println("document.$db: " + JSON.serialize(document.get("document")));
 
                 MongoDatabase mongoDatabase1 =  mongoClient.getDatabase(document.getString("$db"));
